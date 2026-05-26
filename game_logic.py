@@ -24,20 +24,18 @@ def get_angle_radians(point_a: Point2D, point_b: Point2D) -> float:
 
     Pista: usar math.atan2 sobre las diferencias dy, dx.
     """
-    ### ---------------------- ###
-    ### SU IMPLEMENTACION AQUI ###
-    ### ---------------------- ###
-    return 0.0
+    dx = point_b.x - point_a.x
+    dy = point_b.y - point_a.y
+    return math.atan2(dy, dx)
 
 
 def get_distance(point_a: Point2D, point_b: Point2D) -> float:
     """
     Devuelve la distancia euclidiana en pixeles entre `point_a` y `point_b`.
     """
-    ### ---------------------- ###
-    ### SU IMPLEMENTACION AQUI ###
-    ### ---------------------- ###
-    return 0.0
+    dx = point_b.x - point_a.x
+    dy = point_b.y - point_a.y
+    return math.hypot(dx, dy)
 
 
 def get_impulse_vector(start_point: Point2D, end_point: Point2D) -> ImpulseVector:
@@ -60,7 +58,6 @@ def get_impulse_vector(start_point: Point2D, end_point: Point2D) -> ImpulseVecto
 
     Use las dos funciones definidas arriba en esta implementacion.
     """
-    ### ---------------------- ###
-    ### SU IMPLEMENTACION AQUI ###
-    ### ---------------------- ###
-    return ImpulseVector(0, 0)
+    angle = get_angle_radians(end_point, start_point)
+    impulse = get_distance(start_point, end_point)
+    return ImpulseVector(angle, impulse)
